@@ -1,0 +1,35 @@
+\subsection{derive}
+
+Autocurreation function of a quantity \(A(t)\) is in numerical analysis:
+
+\begin{equation}
+  \acf{A}{t}{t + \tau} = \lim_{N \rightarrow \infty}\frac{1}{N} \sum_{i = 0}^{N} h(t_i)h(t_i + \tau)
+  \label{acf}
+\end{equation}
+
+where \(\tau \) is delay/shift time and \(N\) is the number of sampling.
+You noticed that variable \(t\) does not appear in the right side because autocorrelation function is a sum of all samples.
+
+If the quantity \(A(t)\) is heat current, \(h(t)\), heat conductivity \(\lambda \) is written. Note that linear response theory works in the region of equilibruim and is required stationarity.
+
+When this situation, we can derive:
+
+\begin{equation}
+  \acf{A}{t}{t + \tau}  = \acf{A}{0}{\tau}
+\end{equation}
+
+then, we can introduce heat conductivity:
+
+\begin{equation}
+  \lambda = \frac{1}{3Vk_B T^2} \int_0^\infty d\tau \acf{h}{0}{\tau}
+  \label{heat_conductivity}
+\end{equation}
+
+In numerical analysis, Eq.\ref{heat_conductivity} is:
+
+\begin{equation}
+  \int_0^\infty d\tau \acf{h}{0}{\tau} = \lim_{N \rightarrow \infty} \sum_{i=0}^N \acf{h}{t_0}{t_i}
+  \label{numerical_heat_conductivity}
+\end{equation}
+
+\(t_0\) is \(t = 0\). The integration range is limited. Thus, we remove limit to infinity.
